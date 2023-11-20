@@ -150,6 +150,6 @@ waiting(".LBZcnyiyRP6tvsxXDlrd #sb_conversations").then((elm) => {
       tour.setOption("scrollToElement", true);
     }
   });
-  tour.start();
+  //tour.start();
   console.log("SITE TOUR START");
 });
