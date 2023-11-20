@@ -18,11 +18,8 @@ function waiting(selector) {
     });
   });
 }
-waiting("#dashboard .card-group").then((elm) => {
-  console.log("FOR TESTING PURPOSES");
-});
 
-waiting(".LBZcnyiyRP6tvsxXDlrd #sb_dashboard").then((elm) => {
+waiting(".LBZcnyiyRP6tvsxXDlrd #sb_conversations").then((elm) => {
   var tour = introJs();
 
   tour.setOptions({
