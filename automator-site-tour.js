@@ -7,7 +7,7 @@ function waiting(selector) {
     const observer = new MutationObserver((mutations) => {
       if (document.querySelector(selector)) {
         console.log(mutations.childList);
-        //observer.disconnect();
+        observer.disconnect();
         resolve(document.querySelector(selector));
       }
     });
@@ -151,4 +151,5 @@ waiting(".LBZcnyiyRP6tvsxXDlrd #sb_conversations").then((elm) => {
     }
   });
   tour.start();
+  console.log("SITE TOUR START");
 });
