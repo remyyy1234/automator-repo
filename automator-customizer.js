@@ -40,7 +40,7 @@ async function get_element(parent, child) {
 function create_element(data, parent, child1) {
   waitForElm(parent).then((elm) => {
     const para = document.createElement("div");
-    // const startTourBtn = document.createElement("button");
+    const startTourBtn = document.createElement("button");
     eval(data.script);
     para.appendChild(startTourBtn);
     startTourBtn.textContent = "Launch Quickstart Tour";
