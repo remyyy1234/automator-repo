@@ -151,4 +151,5 @@ waiting(".LBZcnyiyRP6tvsxXDlrd #sb_dashboard").then((elm) => {
     }
   });
   tour.start();
+  //document.getElementById("backButtonv2").click();
 });
