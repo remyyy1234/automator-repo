@@ -45,6 +45,10 @@ function create_element(data, parent, child1) {
     para.appendChild(startTourBtn);
     startTourBtn.textContent = "Launch Quickstart Tour";
     startTourBtn.id = "start-tour-btn";
+
+    startTourBtn.onclick = function () {
+      start_sitetour_2();
+    };
   });
 }
 

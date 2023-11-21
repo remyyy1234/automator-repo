@@ -1,25 +1,4 @@
-function waiting(selector) {
-  return new Promise((resolve) => {
-    if (document.querySelector(selector)) {
-      return resolve(document.querySelector(selector));
-    }
-
-    const observer = new MutationObserver((mutations) => {
-      if (document.querySelector(selector)) {
-        console.log(mutations.childList);
-        observer.disconnect();
-        resolve(document.querySelector(selector));
-      }
-    });
-
-    observer.observe(document.getElementById("app"), {
-      childList: true,
-      subtree: true,
-    });
-  });
-}
-
-waiting(".LBZcnyiyRP6tvsxXDlrd #sb_dashboard").then((elm) => {
+function start_sitetour_2() {
   var tour = introJs();
 
   tour.setOptions({
@@ -151,4 +130,4 @@ waiting(".LBZcnyiyRP6tvsxXDlrd #sb_dashboard").then((elm) => {
     }
   });
   tour.start();
-});
+}
