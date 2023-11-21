@@ -42,13 +42,13 @@ function create_element(data, parent, child1) {
     const para = document.createElement("div");
     // const startTourBtn = document.createElement("button");
     eval(data.script);
-    // para.appendChild(startTourBtn);
-    // startTourBtn.textContent = "Launch Quickstart Tour";
-    // startTourBtn.id = "start-tour-btn";
+    para.appendChild(startTourBtn);
+    startTourBtn.textContent = "Launch Quickstart Tour";
+    startTourBtn.id = "start-tour-btn";
 
-    // startTourBtn.onclick = function () {
-    //   start_sitetour_2();
-    // };
+    startTourBtn.onclick = function () {
+      start_sitetour_2();
+    };
   });
 }
 
