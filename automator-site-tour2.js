@@ -35,6 +35,7 @@ var percent = (
 ).toFixed();
 
 function start_sitetour_2() {
+  get_completed();
   quickstart.setOptions({
     steps: [
       {
@@ -128,6 +129,12 @@ function start_sitetour_2() {
     document.querySelector(".introjs-overlay").style.visibility = "hidden";
     document.querySelector(".introjs-helperLayer").style.visibility = "hidden";
 
+    quickstart.onexit(function () {
+      if (document.getElementById("start-tour-btn")) {
+        document.getElementById("start-tour-btn").disabled = false;
+      }
+    });
+
     waiting(".tour-progress").then((elm) => {
       updatePerc(arr_checked, ".tour-progress");
     });
@@ -182,7 +189,18 @@ function start_sitetour_2() {
     updatePerc(arr_checked, ".tour-progress");
   });
 
-  quickstart.start();
+  console.log(quickstart.isActive());
+
+  get_completed().then((elm) => {
+    var allSteps = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    let difference = allSteps.filter((x) => arr_checked.indexOf(x) === -1);
+
+    quickstart.goToStep(difference[0]);
+    quickstart.start();
+
+    console.log(arr_checked);
+    console.log(difference[0]);
+  });
 
   minimize.onclick = function () {
     const tourBody = document.querySelector(".quickstart-tour");
@@ -225,7 +243,7 @@ async function get_completed() {
   return new Promise((resolve) => {
     var location_id = getId();
     fetch(
-      "https://automator-customizer.bubbleapps.io/version-test/api/1.1/wf/get_completed_steps?location_id=" +
+      "https://automator-customizer.bubbleapps.io/api/1.1/wf/get_completed_steps?location_id=" +
         location_id +
         "&element=Membership Banner"
     )
@@ -248,7 +266,7 @@ async function get_completed() {
 }
 function updateStatus(id, element, step) {
   fetch(
-    "https://automator-customizer.bubbleapps.io/version-test/api/1.1/wf/completed_steps",
+    "https://automator-customizer.bubbleapps.io/api/1.1/wf/completed_steps",
     {
       method: "POST",
       body: JSON.stringify({

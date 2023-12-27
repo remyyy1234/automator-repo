@@ -12,7 +12,7 @@ async function css_design() {
   let obj;
 
   const res = await fetch(
-    "https://automator-customizer.bubbleapps.io/version-test/api/1.1/wf/dynamic_css"
+    "https://automator-customizer.bubbleapps.io/api/1.1/wf/dynamic_css"
   );
 
   obj = await res.json();
@@ -27,7 +27,7 @@ async function get_element(parent, child) {
   let element_list;
   var location_id = getId();
   const elements = await fetch(
-    "https://automator-customizer.bubbleapps.io/version-test/api/1.1/wf/create_element?location_id=" +
+    "https://automator-customizer.bubbleapps.io/api/1.1/wf/create_element?location_id=" +
       location_id
   );
   const dashboard_column = document.createElement("div");
@@ -49,19 +49,16 @@ function create_element(data, parent, child1) {
 }
 //HIDE ELEMENT
 function hide_element(id, element) {
-  fetch(
-    "https://automator-customizer.bubbleapps.io/version-test/api/1.1/wf/hide_element",
-    {
-      method: "POST",
-      body: JSON.stringify({
-        location_id: id,
-        element_id: element,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    }
-  );
+  fetch("https://automator-customizer.bubbleapps.io/api/1.1/wf/hide_element", {
+    method: "POST",
+    body: JSON.stringify({
+      location_id: id,
+      element_id: element,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  });
 }
 // POP UP
 function createPopup(message, element, newButton) {

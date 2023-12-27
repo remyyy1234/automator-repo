@@ -208,7 +208,7 @@ async function tour_completion(type, tour) {
   let element_list;
   var location_id = getId();
   const elements = await fetch(
-    "https://automator-customizer.bubbleapps.io/version-test/api/1.1/wf/check_general_tour?location=" +
+    "https://automator-customizer.bubbleapps.io/api/1.1/wf/check_general_tour?location=" +
       location_id +
       "&type=" +
       type
